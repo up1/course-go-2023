@@ -23,9 +23,11 @@ func (b *Banking) Deposit(amount THB) {
 	b.balance += amount
 }
 
+var ErrNotEnoughMoney = errors.New("Cannot withdraw, money not enough")
+
 func (b *Banking) Withdraw(amount THB) error {
 	if amount > b.balance {
-		return errors.New("Money not enough")
+		return ErrNotEnoughMoney
 	}
 
 	b.balance -= amount
