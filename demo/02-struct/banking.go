@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
 type THB int
 
@@ -20,6 +23,11 @@ func (b *Banking) Deposit(amount THB) {
 	b.balance += amount
 }
 
-func (b *Banking) Withdraw(amount THB) {
+func (b *Banking) Withdraw(amount THB) error {
+	if amount > b.balance {
+		return errors.New("Money not enough")
+	}
+
 	b.balance -= amount
+	return nil
 }

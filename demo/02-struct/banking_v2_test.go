@@ -25,4 +25,16 @@ func TestBanking(t *testing.T) {
 		assertBalance(t, b, THB(4000))
 	})
 
+	t.Run("withdraw not enough money", func(t *testing.T) {
+		startingBalance := THB(1000)
+		b := Banking{startingBalance}
+		err := b.Withdraw(THB(2000))
+
+		assertBalance(t, b, startingBalance)
+
+		if err == nil {
+			t.Error("wanted an error but didn't get one")
+		}
+	})
+
 }
