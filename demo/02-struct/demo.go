@@ -7,9 +7,9 @@ import (
 
 func main() {
 	type first struct {
-		f float64
-		i int32
-		b bool
+		b bool    // 1 byte
+		f float64 // 8 bytes
+		i int32   // 4 bytes
 	}
 	a := first{}
 	fmt.Println(unsafe.Sizeof(a)) // 24 bytes
