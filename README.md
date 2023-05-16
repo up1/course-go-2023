@@ -8,3 +8,5 @@
 * Coverage
 * Struct and interface
 * Error
+* Dependency injection (DI)
+  * Using interface
