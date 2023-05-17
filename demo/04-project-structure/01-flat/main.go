@@ -9,11 +9,6 @@ import (
 // Global variable
 var db Storage
 
-func main() {
-	r := setupRouter()
-	r.Run(":8080")
-}
-
 func setupRouter() *gin.Engine {
 	var err error
 	db, err = NewStorage()
@@ -27,4 +22,9 @@ func setupRouter() *gin.Engine {
 	r.GET("/beers", GetBeers)
 	r.POST("/beers", AddBeer)
 	return r
+}
+
+func main() {
+	r := setupRouter()
+	r.Run(":8080")
 }
