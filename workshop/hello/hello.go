@@ -1,6 +1,9 @@
 package hello
 
-func SayHello() {
+type Demo struct {
+}
+
+func (d Demo) SayHello() {
 	i, err := doSth()
 	if err != nil {
 		println(err)

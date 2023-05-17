@@ -3,7 +3,10 @@ package main
 import "hello"
 
 func main() {
-	hello.SayHello()
+	d := hello.Demo{
+		Name: "somkiat",
+	}
+	d.SayHello()
 }
 
 //go fmt ./...
