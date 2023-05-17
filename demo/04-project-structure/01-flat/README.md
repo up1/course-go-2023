@@ -2,7 +2,14 @@
 
 Run
 ```
+$go mod tidy
 $go run .
+```
+
+Run test and coverage
+```
+$go test -coverprofile=coverage.out
+$go tool cover -html=coverage.out
 ```
 
 API
