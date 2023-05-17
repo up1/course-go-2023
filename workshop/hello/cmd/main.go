@@ -4,7 +4,9 @@ import "hello"
 
 func main() {
 	d := hello.NewDemo("somkiat")
-	d.SayHello()
+	r := d.SayHello()
+	println(r)
+
 }
 
 //go fmt ./...

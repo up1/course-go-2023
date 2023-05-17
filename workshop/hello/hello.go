@@ -1,5 +1,7 @@
 package hello
 
+import "fmt"
+
 type THB int
 
 type Demo struct {
@@ -7,12 +9,12 @@ type Demo struct {
 	Price THB
 }
 
-func (d Demo) SayHello() {
+func (d Demo) SayHello() string {
 	i, err := doSth()
 	if err != nil {
 		println(err)
 	}
-	println("Hello World ", i)
+	return fmt.Sprintf("Hello World %d", i)
 }
 
 func NewDemo(name string) Demo {
