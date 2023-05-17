@@ -17,3 +17,5 @@ func TestSayHi(t *testing.T) {
 //go test ./...
 //go test -v
 //go test -v -cover
+//go test -coverprofile=coverage.out
+//go tool cover -html=coverage.out
