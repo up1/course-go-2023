@@ -1,11 +1,16 @@
 package main
 
-import "hello"
+import (
+	"hello"
+	xx "hello/utils"
+)
 
 func main() {
 	d := hello.NewDemo("somkiat")
 	r := d.SayHello()
 	println(r)
+
+	xx.FormatXXX()
 
 }
 
