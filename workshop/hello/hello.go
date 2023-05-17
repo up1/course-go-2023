@@ -1,7 +1,10 @@
 package hello
 
+type THB int
+
 type Demo struct {
-	Name string
+	Name  string
+	Price THB
 }
 
 func (d Demo) SayHello() {
@@ -14,7 +17,8 @@ func (d Demo) SayHello() {
 
 func NewDemo(name string) Demo {
 	return Demo{
-		Name: name,
+		Name:  name,
+		Price: THB(1000),
 	}
 }
 
