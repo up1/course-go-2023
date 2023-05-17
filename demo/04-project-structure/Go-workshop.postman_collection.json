@@ -1,0 +1,133 @@
+{
+	"info": {
+		"_postman_id": "637dcd56-4342-41e0-8ca8-87009f8fda81",
+		"name": "Go-workshop",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1453931",
+		"_collection_link": "https://red-firefly-245852.postman.co/workspace/day2~ec0d6ed6-713c-474c-888d-74f09fc94cba/collection/1453931-637dcd56-4342-41e0-8ca8-87009f8fda81?action=share&creator=1453931&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Get all beers",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var schema = {",
+							"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",",
+							"  \"type\": \"array\",",
+							"  \"items\": [",
+							"    {",
+							"      \"type\": \"object\",",
+							"      \"properties\": {",
+							"        \"ID\": {",
+							"          \"type\": \"integer\"",
+							"        },",
+							"        \"name\": {",
+							"          \"type\": \"string\"",
+							"        },",
+							"        \"brewery\": {",
+							"          \"type\": \"string\"",
+							"        },",
+							"        \"abv\": {",
+							"          \"type\": \"integer\"",
+							"        },",
+							"        \"short_description\": {",
+							"          \"type\": \"string\"",
+							"        },",
+							"        \"Created\": {",
+							"          \"type\": \"string\"",
+							"        }",
+							"      },",
+							"      \"required\": [",
+							"        \"ID\",",
+							"        \"name\",",
+							"        \"brewery\",",
+							"        \"abv\",",
+							"        \"short_description\",",
+							"        \"Created\"",
+							"      ]",
+							"    }",
+							"  ]",
+							"};",
+							"",
+							"var data = pm.response.json();",
+							"",
+							"pm.test('Schema is valid', function () {",
+							"    pm.expect(tv4.validate(data, schema)).to.be.true;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/beers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"beers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add new beer",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"pm.test(\"Your test name\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.message).to.eql('success');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Demo name\",\n    \"brewery\": \"Demo brewery\",\n    \"abv\": 6,\n    \"short_description\": \"Demo short_description\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/beers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"beers"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
