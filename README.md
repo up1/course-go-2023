@@ -10,6 +10,9 @@
 * Error
 * Dependency injection (DI)
   * Using interface
+* Develop REST API
+  * Gin
+  * Testing
 
 
 ### Reference Websites
