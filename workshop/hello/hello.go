@@ -1,9 +1,5 @@
-package main
+package hello
 
-func main() {
+func SayHello() {
 	println("Hello World")
 }
-
-//go fmt ./...
-//go run hello.go
-//go build -o xxx
