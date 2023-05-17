@@ -20,12 +20,12 @@ func process3(i any) {
 
 type IDo2 interface {
 	f3() error
+	IDo
 }
 
 type IDo interface {
 	f1() error
 	f2() error
-	IDo2
 }
 type V1 struct{}
 
