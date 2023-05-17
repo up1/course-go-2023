@@ -1,6 +1,7 @@
 package hello
 
 type Demo struct {
+	Name string
 }
 
 func (d Demo) SayHello() {
@@ -9,6 +10,12 @@ func (d Demo) SayHello() {
 		println(err)
 	}
 	println("Hello World ", i)
+}
+
+func NewDemo(name string) Demo {
+	return Demo{
+		Name: name,
+	}
 }
 
 func doSth() (int, error) {

@@ -3,9 +3,7 @@ package main
 import "hello"
 
 func main() {
-	d := hello.Demo{
-		Name: "somkiat",
-	}
+	d := hello.NewDemo("somkiat")
 	d.SayHello()
 }
 
