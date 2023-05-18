@@ -8,22 +8,22 @@ import (
 )
 
 // Global variable
-var db Storage
+// var db Storage
 
 func setupRouter() *gin.Engine {
-	var err error
-	db, err = NewStorage()
+	db, err := NewStorage()
 	if err != nil {
 		log.Fatal(err)
 	}
+	database := Database{db: db}
 
-	PopulateBeers()
+	PopulateBeers(database)
 
 	r := gin.New()
 	p := ginprometheus.NewPrometheus("gin")
 	p.Use(r)
-	r.GET("/beers", GetBeers)
-	r.POST("/beers", AddBeer)
+	r.GET("/beers", GetBeers(database))
+	r.POST("/beers", database.AddBeer)
 	return r
 }
 
