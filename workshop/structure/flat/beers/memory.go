@@ -1,18 +1,9 @@
-package main
+package beers
 
 import (
 	"fmt"
 	"time"
 )
-
-type Storage interface {
-	SaveBeer(...Beer) error
-	FindBeers() ([]Beer, error)
-}
-
-func NewStorage() (Storage, error) {
-	return new(StorageMemory), nil
-}
 
 type StorageMemory struct {
 	beers []Beer

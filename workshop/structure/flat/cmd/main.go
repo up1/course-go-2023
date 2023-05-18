@@ -1,6 +1,7 @@
 package main
 
 import (
+	"demo/beers"
 	"log"
 
 	"github.com/gin-gonic/gin"
@@ -11,18 +12,18 @@ import (
 // var db Storage
 
 func setupRouter() *gin.Engine {
-	db, err := NewStorage()
+	db, err := beers.NewStorage()
 	if err != nil {
 		log.Fatal(err)
 	}
-	database := Database{db: db}
+	database := beers.Database{DB: db}
 
-	PopulateBeers(database)
+	beers.PopulateBeers(database)
 
 	r := gin.New()
 	p := ginprometheus.NewPrometheus("gin")
 	p.Use(r)
-	r.GET("/beers", GetBeers(database))
+	r.GET("/beers", beers.GetBeers(database))
 	r.POST("/beers", database.AddBeer)
 	return r
 }

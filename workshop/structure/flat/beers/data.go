@@ -1,4 +1,4 @@
-package main
+package beers
 
 func PopulateBeers(d Database) {
 	defaultBeers := []Beer{
@@ -93,7 +93,7 @@ func PopulateBeers(d Database) {
 		},
 	}
 
-	if err := d.db.SaveBeer(defaultBeers...); err != nil {
+	if err := d.DB.SaveBeer(defaultBeers...); err != nil {
 		panic(err.Error())
 	}
 }

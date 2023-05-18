@@ -1,4 +1,4 @@
-package main
+package beers
 
 import (
 	"net/http"
@@ -7,12 +7,14 @@ import (
 )
 
 type Database struct {
-	db Storage
+	DB Storage
 }
 
 func GetBeers(d Database) gin.HandlerFunc {
+	println("Inital :: only once")
 	return func(c *gin.Context) {
-		beers, err := d.db.FindBeers()
+		println("Every request")
+		beers, err := d.DB.FindBeers()
 		if err != nil {
 			c.AbortWithStatus(http.StatusBadRequest)
 			return
@@ -27,7 +29,7 @@ func (d *Database) AddBeer(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"msg": "Bad request"})
 		return
 	}
-	d.db.SaveBeer(beer)
+	d.DB.SaveBeer(beer)
 	c.JSON(http.StatusCreated, gin.H{
 		"message": "success",
 	})
