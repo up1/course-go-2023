@@ -29,12 +29,36 @@ func CheckStatusWithRoutineAndWaiting(websites []string) map[string]bool {
 
 	for _, web := range websites {
 		println("Check ...", web)
-		go func(u string) {
-			results[u] = check(u)
+		go func(w string) {
+			results[w] = check(w)
 		}(web)
 	}
 
 	time.Sleep(5 * time.Second)
+
+	return results
+}
+
+type result struct {
+	string
+	bool
+}
+
+func CheckStatusWithRoutineAndChannel(websites []string) map[string]bool {
+	results := make(map[string]bool)
+	resultChannel := make(chan result)
+
+	for _, web := range websites {
+		println("Check ...", web)
+		go func(w string) {
+			resultChannel <- result{w, check(w)}
+		}(web)
+	}
+
+	for i := 0; i < len(websites); i++ {
+		r := <-resultChannel
+		results[r.string] = r.bool
+	}
 
 	return results
 }

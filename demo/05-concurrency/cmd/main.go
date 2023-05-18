@@ -12,7 +12,7 @@ func main() {
 		"http://nodata.xxx",
 	}
 
-	results := demo.CheckStatusWithRoutineAndWaiting(websites)
+	results := demo.CheckStatusWithRoutineAndChannel(websites)
 
 	for web, status := range results {
 		fmt.Println(web, status)
