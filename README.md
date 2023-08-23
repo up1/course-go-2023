@@ -4,15 +4,17 @@
   * Write a test
   * Write code to pass test
   * Refactor
-* Testing
+* Testing, Benchmark and Fuzzing
 * Coverage
 * Struct and interface
 * Error
+* Defer, Panic and Recover
 * Dependency injection (DI)
   * Using interface
 * Develop REST API
   * Gin
   * Testing
+* New features in Go 1.21.0
 
 
 ### Reference Websites
