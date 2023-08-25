@@ -11,8 +11,9 @@
 * Defer, Panic and Recover
 * Dependency injection (DI)
   * Using interface
-* Develop REST API
+* Develop REST API]
   * Gin
+  * [Echo]((https://github.com/up1/workshop-go-api-echo))
   * Testing
 * New features in Go 1.21.0
 
