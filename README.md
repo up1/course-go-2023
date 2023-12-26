@@ -1,5 +1,7 @@
 # Course Go 2023
 * Hello with Go
+  * Basic of Go
+  * Go tools 
 * Test-Driven Development (TDD)
   * Write a test
   * Write code to pass test
@@ -13,9 +15,8 @@
   * Using interface
 * Develop REST API]
   * Gin
-  * [Echo]((https://github.com/up1/workshop-go-api-echo))
+  * [Echo](https://github.com/up1/workshop-go-api-echo)
   * Testing
-* New features in Go 1.21.0
 
 
 ### Reference Websites
