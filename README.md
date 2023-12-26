@@ -21,6 +21,7 @@
   * Testing
   * Routing
   * Error handling
+    * [Echo](https://echo.labstack.com/docs/error-handling)
   * Manage dependencies
     * Database connection
   * Testable application 
