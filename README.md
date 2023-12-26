@@ -14,9 +14,16 @@
 * Dependency injection (DI)
   * Using interface
 * Develop REST API]
-  * Gin
-  * [Echo](https://github.com/up1/workshop-go-api-echo)
+  * Web framework
+    * Gin
+    * [Echo](https://github.com/up1/workshop-go-api-echo)
+    * net/http
   * Testing
+  * Routing
+  * Error handling
+  * Manage dependencies
+    * Database connection
+  * Testable application 
 
 
 ### Reference Websites
